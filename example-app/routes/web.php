@@ -21,7 +21,10 @@ Route::get('/', function () {
 Route::controller(TaskController::class)->group(function () {
     Route::get('/task', 'index')->name('task.index');
     Route::match(['get', 'post'], '/task/create', 'create')->name('task.create');
+    Route::match(['get', 'post'], '/task/create/random', 'createRandom')->name('task.create_random');
     Route::match(['get', 'post'], '/task/{id}/edit', 'edit')->where(['id' => '\d+'])->name('task.edit');
+    Route::get('/task/{id}/next', 'next')->where(['id' => '\d+'])->name('task.next');
+    Route::get('/task/{id}/previous', 'previous')->where(['id' => '\d+'])->name('task.previous');
     Route::get('/task/{id}/delete', 'delete')->where(['id' => '\d+'])->name('task.delete');
     Route::get('/task/{id}',  'show')->where(['id' => '\d+'])->name('task.show');
 });
