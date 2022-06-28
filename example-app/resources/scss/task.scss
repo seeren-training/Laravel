@@ -1,0 +1,12 @@
+.task\.index {
+    .container {
+        min-height: 75%;
+        margin-top: 3em;
+        .notification a {
+            text-decoration: none;
+        }
+        .columns {
+            min-height: 50vh;
+        }
+    }
+}

@@ -7,7 +7,7 @@
     <script src="/js/app.js" defer></script>
 </head>
 
-<body>
+<body class="{{ request()->route()->getName() }}">
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
@@ -25,7 +25,7 @@
                 <div class="navbar-item">
                     <div class="buttons">
                         @section('navbar-item')
-                            @foreach (['task.index' => 'Task list', 'task.create' => 'New Task'] as $name => $label)
+                            @foreach (['task.index' => 'Task list', 'task.create' => 'New Task', 'task.create_random' => 'Random Task'] as $name => $label)
                                 <a @class([
                                     'navbar-item',
                                     'is-active' =>
@@ -38,9 +38,8 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
+
 </body>
 
 </html>

@@ -136,6 +136,8 @@ ___
 
 Il nous faudra certainement remplir des tables pour avoir des valeurs par défaut. C'est le concept de Seeder qui le permet.
 
+[Seeders](https://laravel.com/docs/9.x/seeding#running-seeders)
+
 ```php
 php artisan make:seeder StateSeeder  
 ```
@@ -170,6 +172,11 @@ public function up()
 }
 ```
 
+Pour exécuter les seeders la commande est la suivante.
+
+```bash
+php artisan db:seed
+```
 ___
 
 ## 📑 Opérations
@@ -184,6 +191,27 @@ La syntaxe est celle observée précédement.
 DB::table('users')->insert([
     'email' => 'kayla@example.com',
     'votes' => 0
+]);
+```
+
+Il est également possible d'utiliser la classe du modèle pour ne pas passer par un manager, le type renvoyé sera celui du modèle.
+
+```php
+User::insert([
+    'email' => 'kayla@example.com',
+    'votes' => 0
+]);
+```
+
+Pour effectuer une insertion en relation sans cascade il faut imbriquer les opérations.
+
+```php
+Task::insert([
+    'name' => 'Randommm',
+    'description' => 'Randommm description',
+    'state_id' => DB::table('state')->get()->where('value', 'TODO')->first()->id,
+    'created_at' => new DateTime(),
+    'updated_at' => new DateTime(),
 ]);
 ```
 
@@ -205,6 +233,19 @@ Pour une lecture unitaire vous devez utiliser les clauses du query builder.
 
 ```php
 $user = DB::table('users')->where('name', 'John')->first();
+```
+
+Pour lire avec des relations plusieurs syntaxes.
+
+```php
+$state = State::find(1);
+$tasks = $state->tasks;
+```
+
+La seconde syntaxe ne permet d'extraire les valeurs liées lors d'une inversion.
+
+```php
+Task::with('state:id,value')->get()
 ```
 
 [Query](https://laravel.com/docs/9.x/queries#running-database-queries)

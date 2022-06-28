@@ -10305,3 +10305,19 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: hsl(0deg, 0%, 98%);
   padding: 3rem 1.5rem 6rem;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+.task\.index .container {
+  min-height: 75%;
+  margin-top: 3em;
+}
+.task\.index .container .notification a {
+  text-decoration: none;
+}
+.task\.index .container .columns {
+  min-height: 50vh;
+}
