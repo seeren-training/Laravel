@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('state', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->bigInteger('states_id')->unsigned();
-            $table->foreign('states_id')
-                ->references('id')
-                ->on('states');
+            $table->enum('value', [
+                'TODO',
+                'DOING',
+                'DONE',
+            ]);
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('state');
     }
 };
