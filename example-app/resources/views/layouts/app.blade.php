@@ -33,6 +33,11 @@
                                 ]) href="{{ route($name) }}">{{ $label }}</a>
                             @endforeach
                         @show
+                        @auth
+                        <a class="'navbar-item'" href="{{ route('security.logout') }}">
+                            Logout
+                        </a>
+                        @endauth
                     </div>
                 </div>
             </div>
