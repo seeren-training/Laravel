@@ -45,6 +45,11 @@ class TaskDomainService
         );
     }
 
+    public function update(Task $task): bool
+    {
+        return $this->taskRepository->persist($task);
+    }
+
     public function upgradeState(int $id): bool
     {
         return ($task = $this->get($id))
