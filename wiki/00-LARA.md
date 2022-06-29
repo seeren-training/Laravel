@@ -13,12 +13,11 @@ ___
 
 * [Introduction](https://github.com/seeren-training/Laravel/wiki/01)
 * [Installation](https://github.com/seeren-training/Laravel/wiki/02)
-* [Controller](https://github.com/seeren-training/Laravel/wiki/02)
-* [Template](https://github.com/seeren-training/Laravel/wiki/02)
-* [Database](https://github.com/seeren-training/Laravel/wiki/02)
-* [Form](https://github.com/seeren-training/Laravel/wiki/02)
-* [Security](https://github.com/seeren-training/Laravel/wiki/02)
-* [Api](https://github.com/seeren-training/Laravel/wiki/02)
+* [Controller](https://github.com/seeren-training/Laravel/wiki/03)
+* [Template](https://github.com/seeren-training/Laravel/wiki/04)
+* [Database](https://github.com/seeren-training/Laravel/wiki/05)
+* [Form](https://github.com/seeren-training/Laravel/wiki/06)
+* [Security](https://github.com/seeren-training/Laravel/wiki/07)
 
 ___
 
